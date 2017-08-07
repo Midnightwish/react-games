@@ -7,11 +7,15 @@ class Hangman extends React.Component {
   constructor(props) {
     super(props);
     this.state = {password: ""};
+
+    this.onButtonClick = this.onButtonClick.bind(this);
   }
 
   componentDidMount() {
+    this.onButtonClick();
+  }
 
-//  hashPassword(){
+  onButtonClick() {
     const password_list = ["test", "inny test"]; // chwilowo tutaj
     const number = Math.floor(Math.random() * (password_list.length));
     const currently_password = password_list[number].split('');
@@ -29,11 +33,6 @@ class Hangman extends React.Component {
     this.setState({password: hidden_password})
   }
 
-  ButtonClick() {
-    alert("test");
-    // start new game
-  }
-
   render() {
     return (
       <div className = "game">
@@ -41,7 +40,7 @@ class Hangman extends React.Component {
           <Password hiddenPassword = {this.state.password} />
           <div id = "hangman">
             <Picture />
-            <KeyChoice ButtonClick = {this.ButtonClick.bind(this)} />
+            <KeyChoice onButtonClick = {this.onButtonClick} />
           </div>
         </div>
       </div>
