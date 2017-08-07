@@ -1,20 +1,28 @@
 import React from 'react';
+import Password from './Hangman/Password.js';
+import Picture from './Hangman/Picture.js';
+import KeyChoice from './Hangman/KeyChoice.js';
 
-const Hangman = () => {
-  return (
-    <div className = "game">
-      <div className = "container">
-        <div id = "password">Hasło</div>
-        <div id = "hangman">
-          <div id = "picture">Obrazek wisielca</div>
-          <div id = "choice-container">
-            <div id = "keyboard">Litery do wyboru</div>
-            <div id = "newgame">Zacznij nową grę!</div>
+class Hangman extends React.Component {
+
+  ButtonClick() {
+    alert("test");
+    // start new game
+  }
+
+  render() {
+    return (
+      <div className = "game">
+        <div className = "container">
+          <Password />
+          <div id = "hangman">
+            <Picture />
+            <KeyChoice ButtonClick = {this.ButtonClick.bind(this)} />
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Hangman;
