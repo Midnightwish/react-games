@@ -22,3 +22,50 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+body
+{
+  background-color: #111111;
+  color: lightgray;
+}
+
+/* CSS for hangman game */
+
+.container
+{
+  width: 1000px;
+  margin: auto;
+}
+
+#password
+{
+  height: 120px;
+}
+
+#hangman
+{
+  min-height: 500px;
+}
+
+#picture
+{
+  width: 250px;
+  min-height: inherit;
+  float: left;
+}
+
+#choice-container
+{
+  width: 750px;
+  float: left;
+}
+
+#keyboard
+{
+  min-height: 450px;
+}
+
+#newgame
+{
+  min-height: 50px;
+}
