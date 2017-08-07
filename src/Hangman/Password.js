@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Password = () => {
+const Password = (props) => {
   return (
-    <div id = "password">Tu wyświetlane będzie hasło</div>
+    <div id = "password">
+      {props.hiddenPassword}
+    </div>
   );
 }
 
