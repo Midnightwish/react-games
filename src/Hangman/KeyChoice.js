@@ -8,14 +8,14 @@ class KeyChoice extends React.Component {
     return (
       <div id = "choice-container">
         <div id = "keyboard">
-          {letters.map((letter) =>
-            <div key = {letter.id}>
+          {letters.map((letter, index) =>
+            <div className = "letters" id = {`letter${index}`} key = {index} onClick = {() => this.props.letterCheck(index)} >
               {letter}
             </div>
           )}
         </div>
         <div id = "newgame">
-          <button onClick = {this.props.onButtonClick} >New Game!</button>
+          <button onClick = {this.props.randomPassword} >New Game!</button>
         </div>
       </div>
     );

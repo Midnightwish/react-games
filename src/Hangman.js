@@ -8,17 +8,20 @@ class Hangman extends React.Component {
     super(props);
     this.state = {password: ""};
 
-    this.onButtonClick = this.onButtonClick.bind(this);
+    this.randomPassword = this.randomPassword.bind(this);
   }
 
   componentDidMount() {
-    this.onButtonClick();
+    this.randomPassword();
   }
 
-  onButtonClick() {
+  randomPassword() {
+    // Wybór losowego hasła
     const password_list = ["test", "inny test"]; // chwilowo tutaj
     const number = Math.floor(Math.random() * (password_list.length));
     const currently_password = password_list[number].split('');
+
+    // Zmiana hasła na wykreskowane
     let hidden_password = "";
 
     for (let i = 0; i < currently_password.length; i++ )
@@ -30,7 +33,13 @@ class Hangman extends React.Component {
       }
     }
 
+    // Ustawienie ukrytego hasła jako state
     this.setState({password: hidden_password})
+  }
+
+  letterCheck(index) {
+    alert(index);
+//    console.log(this.state.password);
   }
 
   render() {
@@ -40,7 +49,7 @@ class Hangman extends React.Component {
           <Password hiddenPassword = {this.state.password} />
           <div id = "hangman">
             <Picture />
-            <KeyChoice onButtonClick = {this.onButtonClick} />
+            <KeyChoice letterCheck = {this.letterCheck} randomPassword = {this.randomPassword} />
           </div>
         </div>
       </div>
