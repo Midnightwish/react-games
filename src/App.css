@@ -41,7 +41,9 @@ body
 #password
 {
   height: 120px;
+  font-family: 'Inconsolata', monospace;
   font-size: 26px;
+  letter-spacing: 5px;
 }
 
 #hangman
@@ -64,7 +66,7 @@ body
 
 #keyboard
 {
-  min-height: 350px;
+  min-height: 275px;
 }
 
 #newgame
@@ -85,9 +87,32 @@ body
   cursor: pointer;
 }
 
+.clicked-letters
+{
+  width: 30px;
+  height: 30px;
+  margin: 6px;
+  padding: 12px 6px 6px 6px;
+  border-radius: 10px;
+  text-align: center;
+  float: left;
+}
+
 .letters:hover
 {
   background-color: #444;
   color: white;
   border: 2px solid white;
+}
+
+.green
+{
+  color: green;
+  border: 2px solid green;
+}
+
+.red
+{
+  color: red;
+  border: 2px solid red;
 }

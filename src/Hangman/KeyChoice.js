@@ -9,7 +9,7 @@ class KeyChoice extends React.Component {
       <div id = "choice-container">
         <div id = "keyboard">
           {letters.map((letter, index) =>
-            <div className = "letters" id = {`letter${index}`} key = {index} onClick = {() => this.props.letterCheck(index)} >
+            <div className = "letters" id = {`letter${index}`} key = {index} onClick = {(event) => this.props.letterCheck(event, letter)} >
               {letter}
             </div>
           )}
