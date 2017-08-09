@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Picture = () => {
+const Picture = (props) => {
   return (
-    <div id = "picture">A tu wisielec</div>
+    <div id = "picture">{props.counter}/8</div>
   );
 }
 

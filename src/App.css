@@ -48,13 +48,14 @@ body
 
 #hangman
 {
-  min-height: 400px;
+  min-height: 325px;
 }
 
 #picture
 {
   width: 480px;
   min-height: inherit;
+  text-align: center;
   float: left;
 }
 
@@ -115,4 +116,30 @@ body
 {
   color: red;
   border: 2px solid red;
+}
+
+.loose
+{
+  margin-top: 25px;
+  font-size: 30px;
+  color: #A00000;
+}
+
+.loose:hover
+{
+  color: red;
+  cursor: pointer;
+}
+
+.win
+{
+  margin-top: 25px;
+  font-size: 30px;
+  color: #00A000;
+}
+
+.win:hover
+{
+  color: green;
+  cursor: pointer;
 }
