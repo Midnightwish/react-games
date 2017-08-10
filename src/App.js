@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -12,17 +11,14 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <BrowserRouter>
-          <div className = "list">
+          <div id = "list">
             <ul>
               <li>
-                <Link to = "/memory">Memory Game</Link>
+                <div className = "list">
+                  <Link to = "/memory">Memory Game</Link>
+                </div>
               </li>
               <li>
                 <Link to = "/tictactoe">Tictactoe</Link>

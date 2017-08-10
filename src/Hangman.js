@@ -3,7 +3,7 @@ import Password from './Hangman/Password.js';
 import Picture from './Hangman/Picture.js';
 import KeyChoice from './Hangman/KeyChoice.js';
 import Win from './Hangman/Win.js';
-import Loose from './Hangman/Loose.js';
+import Lose from './Hangman/Lose.js';
 
 class Hangman extends React.Component {
   constructor(props) {
@@ -100,7 +100,7 @@ class Hangman extends React.Component {
 
     let content = null;
     if(counter > 7) {
-      content = <Loose resetGame = {this.resetGame} />
+      content = <Lose resetGame = {this.resetGame} />
     } else {
       if(hidden_password === clean_password) {
         content = <Win resetGame = {this.resetGame} />
