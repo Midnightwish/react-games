@@ -13,6 +13,31 @@ ul
   width: 100%;
 }
 
+/* CSS for memory game */
+
+.memory
+{
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.memory-start
+{
+  min-height: 100px;
+}
+
+.memory-board
+{
+  width: 700px;
+  display: inline-block;
+}
+
+.memory-counter
+{
+  width: 300px;
+  display: inline-block;
+}
 
 /* CSS for hangman game */
 
