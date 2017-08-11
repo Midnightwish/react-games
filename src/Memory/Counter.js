@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Counter = () => {
+const Counter = (props) => {
   return (
-    <div className = "memory-counter">test3</div>
+    <div className = "memory-counter">
+      <p>Ilość kliknięć: {props.counter}</p>
+      <p>Czas gry: </p>
+    </div>
   );
 }
 
