@@ -9,14 +9,28 @@ class Memory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0
+      counter: 0,
+      shuffled_array: []
     }
 
     this.shuffleArray = this.shuffleArray.bind(this);
+    this.numberCheck = this.numberCheck.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadGame();
+  }
+
+  loadGame() {
+    let start_board = Math.floor(Math.random() * game_array.length);
+    let chosen_difficulty = game_array[start_board];
+    this.shuffle(chosen_difficulty);
   }
 
   shuffleArray(event) {
+    this.setState({counter: 0});
     let difficulty = event.currentTarget.textContent;
+    //  Wybór tablicy gry w zależności od klikniętego przycisku
     if (difficulty === "Łatwy")
     {
       this.shuffle(game_array[0]);
@@ -28,7 +42,6 @@ class Memory extends React.Component {
   }
 
   shuffle(arr) {
-  //  console.log(arr);
     let help_array = []; // pomocnicza tablica, co iterację zmniejsza długość o 1
     let shuffled = [];  // wymieszana tablica
 
@@ -41,9 +54,13 @@ class Memory extends React.Component {
       } else {
         help_length = help_array.length;
       }
+
+      //  Przygotowanie do usunięcia losowego elementu z tablicy
       let to_del = Math.floor(Math.random() * (help_length));
       let delete_array = []; // tablica z której będą usuwane wartości co iterację
       let k = 0;
+
+      //  Przypisanie wszystkich wartości prócz usuniętej do "delete_array"
       for (let j = 0; j < help_length; j++)
       {
         if (j !== to_del)
@@ -56,6 +73,7 @@ class Memory extends React.Component {
           }
           k++;
         } else {
+          //  Dodanie losowo usuniętego elementu to potasowanej tablicy
           if (i === 0)
           {
             shuffled[i] = arr[j];
@@ -67,19 +85,25 @@ class Memory extends React.Component {
       help_array = delete_array;
     }
     console.log(shuffled);
+    this.setState({shuffled_array: shuffled});
   }
 
-  //startGame() {
-  //}
+  numberCheck(event, number) {
+    console.log(event.currentTarget.attributes);
+    event.currentTarget.setAttribute("name", `${number}`);
+    console.log(event.currentTarget.attributes);
+    this.setState({counter: this.state.counter + 1})
+  }
 
   render() {
     const counter = this.state.counter;
+    const play_array = this.state.shuffled_array;
 
     return (
       <div className = "memory">
         <StartGame shuffle = {this.shuffleArray} />
         <div className = "memory-game">
-          <Board />
+          <Board numberCheck = {this.numberCheck} play_array = {play_array} />
           <Counter counter = {counter} />
         </div>
       </div>

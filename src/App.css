@@ -29,13 +29,26 @@ ul
 
 .memory-board
 {
-  width: 700px;
-  display: inline-block;
+  width: 800px;
+  float: left;
 }
 
 .memory-counter
 {
-  width: 300px;
+  width: 200px;
+  float: left;
+}
+
+.numbers
+{
+  padding-top: 25px;
+  height: 50px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  width: 92px;
+  border: 1px solid white;
+  border-radius: 5px;
   display: inline-block;
 }
 
