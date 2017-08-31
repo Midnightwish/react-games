@@ -10,7 +10,9 @@ class Memory extends React.Component {
     super(props);
     this.state = {
       counter: 0,
-      shuffled_array: []
+      shuffled_array: [],
+      first_click: [],
+      second_click: []
     }
 
     this.shuffleArray = this.shuffleArray.bind(this);
@@ -89,13 +91,49 @@ class Memory extends React.Component {
   }
 
   numberCheck(event, number) {
-    console.log(event.currentTarget.attributes);
-    event.currentTarget.setAttribute("name", `${number}`);
-    console.log(event.currentTarget.attributes);
-    this.setState({counter: this.state.counter + 1})
+    let clicked = event.currentTarget;
+    clicked.setAttribute("name", `${number}`);
+    //zrobic pod klika nieparzystego
+
+    if (clicked.classList.length === 1)
+    {
+      clicked.classList.add("visible");
+      // Pierwszy klik
+      if ((this.state.counter + 1)%2 === 1)
+      {
+        this.setState({first_click: [clicked.id, clicked.getAttribute("name")]});
+      //Drugi klik
+      } else if ((this.state.counter + 1)%2 === 0) {
+          this.setState({second_click: [clicked.id, clicked.getAttribute("name")]});
+          // Różne "id"
+          if (this.state.first_click[0] !== this.state.second_click[0])
+          {
+            // Taka sama wartość "name"
+            if (this.state.first_click[1] === this.state.second_click[1])
+            {
+              this.setState({first_click: []});
+              this.setState({second_click: []});
+            } else {
+              clicked.classList.remove("visible");
+              // ...
+              this.setState({first_click: []});
+              this.setState({second_click: []});
+            }
+          } else {
+            // ...
+            this.setState({first_click: []});
+            this.setState({second_click: []});
+          }
+        }
+
+      this.setState({counter: this.state.counter + 1});
+    }
   }
 
   render() {
+    console.log(this.state.first_click);
+    console.log(this.state.second_click);
+
     const counter = this.state.counter;
     const play_array = this.state.shuffled_array;
 
